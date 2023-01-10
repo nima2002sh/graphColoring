@@ -40,6 +40,15 @@ class CSP:
                 expendList.append(i)
         return expendList
 
+    def LCV(self,city,domain):
+        numberOfColor = [0] * self.numberOfColors
+        for i in range(numberOfCities):
+            if self.map[city][i] == 1:
+                for color in (domain[i]):
+                    numberOfColor[color-1]+=1
+        bestColor = numberOfColor[numberOfColor.index(min(numberOfColor))]+1
+        return bestColor
+
 
 
 
