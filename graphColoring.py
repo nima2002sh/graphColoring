@@ -1,3 +1,12 @@
+class CSP:
+
+    def __init__(self,map):
+        self.map = map
+        self.numberOfCities = len(map)
+        self.numberOfColors = 4
+
+
+
 SwedenMap = [
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     [0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
