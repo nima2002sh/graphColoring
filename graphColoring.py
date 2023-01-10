@@ -19,6 +19,16 @@ class CSP:
                 domain[i].append(j+1)
         return domain
 
+    def setDegree(self):
+        degreeList = []
+        for i in range(numberOfCities):
+            degree = 0
+            for j in range(numberOfCities):
+                if map[i][j] == 1:
+                    degree+=1
+            degreeList.append(degree)
+        return degreeList
+
     def MRV(self,domains):
         expendList = []
         minDomane = self.numberOfColors
