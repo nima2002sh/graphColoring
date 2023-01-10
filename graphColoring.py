@@ -1,3 +1,9 @@
+class Node:
+
+    def __init__(self,state,parent):
+        self.state = state
+        self.parent = parent
+
 class CSP:
 
     def __init__(self,map):
@@ -12,6 +18,18 @@ class CSP:
             for j in range(self.numberOfColors):
                 domain[i].append(j+1)
         return domain
+
+    def MRV(self,domains):
+        expendList = []
+        minDomane = self.numberOfColors
+        for i in range(numberOfCities):
+            if len(domains[i]) < minDomane:
+                minDomane = len(domains[i])
+        for i in range(numberOfCities):
+            if len(domains[i]) == minDomane:
+                expendList.append(i)
+        return expendList
+
 
 
 
