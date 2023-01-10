@@ -5,6 +5,14 @@ class CSP:
         self.numberOfCities = len(map)
         self.numberOfColors = 4
 
+    def createInitalDomain(self):
+        domain = {}
+        for i in range(self.numberOfCities):
+            domain[i]=[]
+            for j in range(self.numberOfColors):
+                domain[i].append(j+1)
+        return domain
+
 
 
 SwedenMap = [
