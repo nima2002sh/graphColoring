@@ -21,21 +21,32 @@ class CSP:
 
     def setDegree(self):
         degreeList = []
-        for i in range(numberOfCities):
+        for i in range(self.numberOfCities):
             degree = 0
-            for j in range(numberOfCities):
-                if map[i][j] == 1:
+            for j in range(self.numberOfCities):
+                if self.map[i][j] == 1:
                     degree+=1
             degreeList.append(degree)
         return degreeList
 
+    def getBestCity(self,degreeList,expendList):
+        bestCitis = []
+        maxDegree = 0
+        for city in expendList:
+            if degreeList[city] >= maxDegree:
+                maxDegree = degreeList[city]
+        for city in expendList:
+            if degreeList[city] == maxDegree:
+                bestCitis.append(city)       
+        return bestCitis
+
     def MRV(self,domains):
         expendList = []
         minDomane = self.numberOfColors
-        for i in range(numberOfCities):
+        for i in range(self.numberOfCities):
             if len(domains[i]) < minDomane:
                 minDomane = len(domains[i])
-        for i in range(numberOfCities):
+        for i in range(self.numberOfCities):
             if len(domains[i]) == minDomane:
                 expendList.append(i)
         return expendList
@@ -84,3 +95,6 @@ AustraliaMap=[
     [0,0,1,0,1,0,0],
     [0,0,0,0,0,0,0],
 ]
+
+AustraliaCSP = CSP(AustraliaMap)
+AustraliaCSP.solve()
